@@ -1,0 +1,158 @@
+PS C:\Users\DELL\Desktop\HBD data viz1> cd ^C
+PS C:\Users\DELL\Desktop\HBD data viz1> & "C:\Users\DELL\Desktop\HBD data viz1\myenv\Scripts\Activate.ps1"
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1> cd frontend
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> npm install
+
+up to date, audited 1342 packages in 3s
+
+271 packages are looking for funding
+  run `npm fund` for details
+
+9 vulnerabilities (3 moderate, 6 high)
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> npm audit fix --force  
+npm warn using --force Recommended protections disabled.
+npm warn audit Updating react-scripts to 0.0.0, which is a SemVer major change.
+
+removed 1310 packages, changed 1 package, and audited 32 packages in 17s
+
+1 package is looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> npm run dev
+npm error Missing script: "dev"
+npm error
+npm error To see a list of scripts, run:
+npm error   npm run
+npm error A complete log of this run can be found in: C:\Users\DELL\AppData\Local\npm-cache\_logs\2025-11-19T07_20_18_586Z-debug-0.log
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> cd..\
+cd..\ : The term 'cd..\' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the 
+name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ cd..\
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (cd..\:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> cd ..
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1> cd backend_2
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> cd ..      
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1> cd backend_2
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> cd ..
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1> cd frontend
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> npm run dev
+npm error Missing script: "dev"
+npm error Missing script: "dev"
+npm error
+npm error
+npm error
+npm error To see a list of scripts, run:
+npm error To see a list of scripts, run:
+npm error   npm run
+npm error A complete log of this run can be found in: C:\Users\DELL\AppData\Local\npm-cache\_logs\2025-11-19T07_24_10_968Z-debug-0.log
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> npm start
+
+> frontend@0.1.0 start
+> react-scripts start
+
+'react-scripts' is not recognized as an internal or external command,
+operable program or batch file.
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> myenv\Scripts\activate
+npm error   npm run
+npm error A complete log of this run can be found in: C:\Users\DELL\AppData\Local\npm-cache\_logs\2025-11-19T07_24_10_968Z-debug-0.log
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> npm start
+
+> frontend@0.1.0 start
+> react-scripts start
+
+'react-scripts' is not recognized as an internal or external command,
+operable program or batch file.
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> myenv\Scripts\activate
+24_10_968Z-debug-0.log
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> npm start
+
+> frontend@0.1.0 start
+> react-scripts start
+
+'react-scripts' is not recognized as an internal or external command,
+operable program or batch file.
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> myenv\Scripts\activate
+
+> frontend@0.1.0 start
+> react-scripts start
+
+'react-scripts' is not recognized as an internal or external command,
+operable program or batch file.
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> myenv\Scripts\activate
+> react-scripts start
+
+'react-scripts' is not recognized as an internal or external command,
+operable program or batch file.
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> myenv\Scripts\activate
+'react-scripts' is not recognized as an internal or external command,
+operable program or batch file.
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> myenv\Scripts\activate
+operable program or batch file.
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> myenv\Scripts\activate
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> myenv\Scripts\activate
+myenv\Scripts\activate : The module 'myenv' could not be loaded. For more information, run 'Import-Module myenv'.
+At line:1 char:1
++ myenv\Scripts\activate
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (myenv\Scripts\activate:String) [], CommandNotFoundException      
+    + FullyQualifiedErrorId : CouldNotAutoLoadModule
+
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend> cd frontend
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend\frontend> npm run dev
+npm error Missing script: "dev"
+npm error
+npm error To see a list of scripts, run:
+npm error   npm run
+npm error A complete log of this run can be found in: C:\Users\DELL\AppData\Local\npm-cache\_logs\2025-11-19T07_57_05_320Z-debug-0.log
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\frontend\frontend> npm start
+
+> frontend@0.1.0 start
+> react-scripts start
+
+(node:15112) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:15112) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:15112) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+Compiled with warnings.
+
+[eslint] 
+src\App.js
+  Line 1379:61:  'Clock' is defined but never used                                                                                                                                                                                                                                                                                              
+                                    no-unused-vars
+  Line 1379:68:  'Database' is defined but never used                                                           
+                                                                                                                
+                                                                                                                
+                                    no-unused-vars
+  Line 1527:15:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  Line 1528:15:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  Line 1529:15:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src\App.js
+  Line 1379:61:  'Clock' is defined but never used                                                              
+                                                                                                                
+                                                                                                                
+                                    no-unused-vars
+  Line 1379:68:  'Database' is defined but never used                                                           
+                                                                                                                
+                                                                                                                
+                                    no-unused-vars
+  Line 1527:15:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  Line 1528:15:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  Line 1529:15:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+webpack compiled with 1 warning

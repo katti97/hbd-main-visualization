@@ -1,0 +1,435 @@
+PS C:\Users\DELL\Desktop\HBD data viz1> & "C:\Users\DELL\Desktop\HBD data viz1\myenv\Scripts\Activate.ps1"
+& : The term 'C:\Users\DELL\Desktop\HBD data viz1\myenv\Scripts\Activate.ps1' is not recognized 
+as the name of a cmdlet, function, script file, or operable program. Check the spelling of the 
+name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:3
++ & "C:\Users\DELL\Desktop\HBD data viz1\myenv\Scripts\Activate.ps1"
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\DELL\D...ts\Activate.ps1:String) [], Com 
+   mandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS C:\Users\DELL\Desktop\HBD data viz1> cd "C:\Users\DELL\Desktop\HBD data viz1\backend_2"
+PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> myenv\Scripts\activate
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> python load_data.py                     
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\HBD data viz1\backend_2\load_data.py", line 1, in <module>
+PS C:\Users\DELL\Desktop\HBD data viz1> cd "C:\Users\DELL\Desktop\HBD data viz1\backend_2"        
+PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> myenv\Scripts\activate
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> python load_data.py
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\HBD data viz1\backend_2\load_data.py", line 1, in <module>
+PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> myenv\Scripts\activate
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> python load_data.py
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\HBD data viz1\backend_2\load_data.py", line 1, in <module>
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> python load_data.py
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\HBD data viz1\backend_2\load_data.py", line 1, in <module>
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\HBD data viz1\backend_2\load_data.py", line 1, in <module>
+  File "C:\Users\DELL\Desktop\HBD data viz1\backend_2\load_data.py", line 1, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+ModuleNotFoundError: No module named 'pandas'
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> pip install pandas
+Fatal error in launcher: Unable to create process using '"C:\Users\DELL\Desktop\HBD data viz1\myenv\Scripts\python.exe"  "C:\Users\DELL\Desktop\HBD data viz1\backend_2\myenv\Scripts\pip.exe" install pandas': The system cannot find the file specified.
+
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> python pip install pandas
+C:\Users\DELL\Desktop\HBD data viz1\backend_2\myenv\Scripts\python.exe: can't open file 'C:\\Users\\DELL\\Desktop\\HBD data viz1\\backend_2\\pip': [Errno 2] No such file or directory
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> pip install --upgrade pip
+Fatal error in launcher: Unable to create process using '"C:\Users\DELL\Desktop\HBD data viz1\myenv\Scripts\python.exe"  "C:\Users\DELL\Desktop\HBD data viz1\backend_2\myenv\Scripts\pip.exe" install --upgrade pip': The system cannot find the file specified.
+
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> python load_data.py
+C:\Users\DELL\Desktop\HBD data viz1\backend_2\myenv\Scripts\python.exe: can't open file 'C:\\Users\\DELL\\Desktop\\HBD data viz1\\backend_2\\pip': [Errno 2] No such file or directory
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> pip install --upgrade pip
+Fatal error in launcher: Unable to create process using '"C:\Users\DELL\Desktop\HBD data viz1\myenv\Scripts\python.exe"  "C:\Users\DELL\Desktop\HBD data viz1\backend_2\myenv\Scripts\pip.exe" install --upgrade pip': The system cannot find the file specified.
+
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> python load_data.py
+Fatal error in launcher: Unable to create process using '"C:\Users\DELL\Desktop\HBD data viz1\myenv\Scripts\python.exe"  "C:\Users\DELL\Desktop\HBD data viz1\backend_2\myenv\Scripts\pip.exe" install --upgrade pip': The system cannot find the file specified.
+
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> python load_data.py
+
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> python load_data.py
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\HBD data viz1\backend_2\load_data.py", line 1, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+ModuleNotFoundError: No module named 'pandas'
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> ^C
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> pip install requirements.txt^C
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> ^C
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> ^C
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> ^C
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> python -m venv myenv^C
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> ^C
+(myenv) PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> deactivate
+PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> python load_data.py
+
+Processing: C:\Users\DELL\Desktop\convo bi\booking_status_report\BSR - 01-DEC-2018.csv
+  Error with utf-8: [Errno 2] No such file or directory: 'C:\\Users\\DELL\\Desktop\\convo bi\\booking_status_report\\BSR - 01-DEC-2018.csv'
+  Error with latin-1: [Errno 2] No such file or directory: 'C:\\Users\\DELL\\Desktop\\convo bi\\booking_status_report\\BSR - 01-DEC-2018.csv'
+  Error with iso-8859-1: [Errno 2] No such file or directory: 'C:\\Users\\DELL\\Desktop\\convo bi\\booking_status_report\\BSR - 01-DEC-2018.csv'
+  Error with cp1252: [Errno 2] No such file or directory: 'C:\\Users\\DELL\\Desktop\\convo bi\\booking_status_report\\BSR - 01-DEC-2018.csv'
+  Error with windows-1252: [Errno 2] No such file or directory: 'C:\\Users\\DELL\\Desktop\\convo bi\\booking_status_report\\BSR - 01-DEC-2018.csv'
+  ✗ Error loading file: Could not read file with any standard encoding
+
+=== Data loading complete! ===
+PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> python load_data.py
+
+Processing: C:\Users\DELL\Desktop\HBD data viz1\bookings_dataset.csv
+  ✓ Successfully read with encoding: latin-1
+  Rows: 101, Columns: 79
+  ✓ Successfully loaded into table: booking_status_dec2018
+  Empty values stored as NULL in MySQL
+
+=== Data loading complete! ===
+PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> python api.py      
+❌ Failed to import analytics_agent: No module named 'strands'
+🚀 Starting HummingBird Analytics API
+📋 Features: MySQL | Visualization | KPIs
+INFO:     Started server process [2888]
+INFO:     Waiting for application startup.
+🔄 Initializing HummingBird Analytics API
+❌ Failed to initialize application: analytics_agent could not be imported
+INFO:     Application startup complete.
+ERROR:    [Errno 10048] error while attempting to bind on address ('0.0.0.0', 8000): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+INFO:     Waiting for application shutdown.
+🔌 Shutting down application...
+✅ Application shutdown completed
+INFO:     Application shutdown complete.
+PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> pip install strands-agents
+Collecting strands-agents
+  Downloading strands_agents-1.17.0-py3-none-any.whl.metadata (13 kB)
+Requirement already satisfied: boto3<2.0.0,>=1.26.0 in c:\users\dell\downloads\venv\lib\site-packages (from strands-agents) (1.40.64)
+Requirement already satisfied: botocore<2.0.0,>=1.29.0 in c:\users\dell\downloads\venv\lib\site-packages (from strands-agents) (1.40.65)
+Collecting docstring-parser<1.0,>=0.15 (from strands-agents)
+  Using cached docstring_parser-0.17.0-py3-none-any.whl.metadata (3.5 kB)
+Requirement already satisfied: jsonschema<5.0.0,>=4.0.0 in c:\users\dell\downloads\venv\lib\site-packages (from strands-agents) (4.25.0)
+Collecting mcp<2.0.0,>=1.11.0 (from strands-agents)
+  Downloading mcp-1.21.2-py3-none-any.whl.metadata (85 kB)
+Requirement already satisfied: opentelemetry-api<2.0.0,>=1.30.0 in c:\users\dell\downloads\venv\lib\site-packages (from strands-agents) (1.36.0)
+Collecting opentelemetry-instrumentation-threading<1.00b0,>=0.51b0 (from strands-agents)
+  Using cached opentelemetry_instrumentation_threading-0.59b0-py3-none-any.whl.metadata (2.1 kB)
+Requirement already satisfied: opentelemetry-sdk<2.0.0,>=1.30.0 in c:\users\dell\downloads\venv\lib\site-packages (from strands-agents) (1.36.0)
+Requirement already satisfied: pydantic<3.0.0,>=2.4.0 in c:\users\dell\downloads\venv\lib\site-packages (from strands-agents) (2.11.7)      
+Requirement already satisfied: typing-extensions<5.0.0,>=4.13.2 in c:\users\dell\downloads\venv\lib\site-packages (from strands-agents) (4.14.1)
+Requirement already satisfied: watchdog<7.0.0,>=6.0.0 in c:\users\dell\downloads\venv\lib\site-packages (from strands-agents) (6.0.0)       
+Requirement already satisfied: jmespath<2.0.0,>=0.7.1 in c:\users\dell\downloads\venv\lib\site-packages (from boto3<2.0.0,>=1.26.0->strands-agents) (1.0.1)
+Requirement already satisfied: s3transfer<0.15.0,>=0.14.0 in c:\users\dell\downloads\venv\lib\site-packages (from boto3<2.0.0,>=1.26.0->strands-agents) (0.14.0)
+Requirement already satisfied: python-dateutil<3.0.0,>=2.1 in c:\users\dell\downloads\venv\lib\site-packages (from botocore<2.0.0,>=1.29.0->strands-agents) (2.9.0.post0)
+Requirement already satisfied: urllib3!=2.2.0,<3,>=1.25.4 in c:\users\dell\downloads\venv\lib\site-packages (from botocore<2.0.0,>=1.29.0->strands-agents) (2.5.0)
+Requirement already satisfied: attrs>=22.2.0 in c:\users\dell\downloads\venv\lib\site-packages (from jsonschema<5.0.0,>=4.0.0->strands-agents) (25.3.0)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in c:\users\dell\downloads\venv\lib\site-packages (from jsonschema<5.0.0,>=4.0.0->strands-agents) (2025.4.1)
+Requirement already satisfied: referencing>=0.28.4 in c:\users\dell\downloads\venv\lib\site-packages (from jsonschema<5.0.0,>=4.0.0->strands-agents) (0.36.2)
+Requirement already satisfied: rpds-py>=0.7.1 in c:\users\dell\downloads\venv\lib\site-packages (from jsonschema<5.0.0,>=4.0.0->strands-agents) (0.26.0)
+Requirement already satisfied: anyio>=4.5 in c:\users\dell\downloads\venv\lib\site-packages (from mcp<2.0.0,>=1.11.0->strands-agents) (4.9.0)
+Requirement already satisfied: httpx-sse>=0.4 in c:\users\dell\downloads\venv\lib\site-packages (from mcp<2.0.0,>=1.11.0->strands-agents) (0.4.1)
+Requirement already satisfied: httpx>=0.27.1 in c:\users\dell\downloads\venv\lib\site-packages (from mcp<2.0.0,>=1.11.0->strands-agents) (0.28.1)
+Requirement already satisfied: pydantic-settings>=2.5.2 in c:\users\dell\downloads\venv\lib\site-packages (from mcp<2.0.0,>=1.11.0->strands-agents) (2.10.1)
+Collecting pyjwt>=2.10.1 (from pyjwt[crypto]>=2.10.1->mcp<2.0.0,>=1.11.0->strands-agents)
+  Using cached PyJWT-2.10.1-py3-none-any.whl.metadata (4.0 kB)
+Collecting python-multipart>=0.0.9 (from mcp<2.0.0,>=1.11.0->strands-agents)
+  Using cached python_multipart-0.0.20-py3-none-any.whl.metadata (1.8 kB)
+Collecting pywin32>=310 (from mcp<2.0.0,>=1.11.0->strands-agents)
+  Using cached pywin32-311-cp313-cp313-win_amd64.whl.metadata (10 kB)
+Collecting sse-starlette>=1.6.1 (from mcp<2.0.0,>=1.11.0->strands-agents)
+  Using cached sse_starlette-3.0.3-py3-none-any.whl.metadata (12 kB)
+Requirement already satisfied: starlette>=0.27 in c:\users\dell\downloads\venv\lib\site-packages (from mcp<2.0.0,>=1.11.0->strands-agents) (0.49.3)
+Requirement already satisfied: typing-inspection>=0.4.1 in c:\users\dell\downloads\venv\lib\site-packages (from mcp<2.0.0,>=1.11.0->strands-agents) (0.4.1)
+Requirement already satisfied: uvicorn>=0.31.1 in c:\users\dell\downloads\venv\lib\site-packages (from mcp<2.0.0,>=1.11.0->strands-agents) (0.35.0)
+Requirement already satisfied: importlib-metadata<8.8.0,>=6.0 in c:\users\dell\downloads\venv\lib\site-packages (from opentelemetry-api<2.0.0,>=1.30.0->strands-agents) (8.7.0)
+Requirement already satisfied: zipp>=3.20 in c:\users\dell\downloads\venv\lib\site-packages (from importlib-metadata<8.8.0,>=6.0->opentelemetry-api<2.0.0,>=1.30.0->strands-agents) (3.23.0)
+Collecting opentelemetry-instrumentation==0.59b0 (from opentelemetry-instrumentation-threading<1.00b0,>=0.51b0->strands-agents)
+  Using cached opentelemetry_instrumentation-0.59b0-py3-none-any.whl.metadata (7.1 kB)
+Collecting wrapt<2.0.0,>=1.0.0 (from opentelemetry-instrumentation-threading<1.00b0,>=0.51b0->strands-agents)
+  Using cached wrapt-1.17.3-cp313-cp313-win_amd64.whl.metadata (6.5 kB)
+Collecting opentelemetry-semantic-conventions==0.59b0 (from opentelemetry-instrumentation==0.59b0->opentelemetry-instrumentation-threading<1.00b0,>=0.51b0->strands-agents)
+  Using cached opentelemetry_semantic_conventions-0.59b0-py3-none-any.whl.metadata (2.4 kB)
+Requirement already satisfied: packaging>=18.0 in c:\users\dell\downloads\venv\lib\site-packages (from opentelemetry-instrumentation==0.59b0->opentelemetry-instrumentation-threading<1.00b0,>=0.51b0->strands-agents) (25.0)
+Collecting opentelemetry-api<2.0.0,>=1.30.0 (from strands-agents)
+  Using cached opentelemetry_api-1.38.0-py3-none-any.whl.metadata (1.5 kB)
+INFO: pip is looking at multiple versions of opentelemetry-sdk to determine which version is compatible with other requirements. This could take a while.
+Collecting opentelemetry-sdk<2.0.0,>=1.30.0 (from strands-agents)
+  Using cached opentelemetry_sdk-1.38.0-py3-none-any.whl.metadata (1.5 kB)
+Requirement already satisfied: annotated-types>=0.6.0 in c:\users\dell\downloads\venv\lib\site-packages (from pydantic<3.0.0,>=2.4.0->strands-agents) (0.7.0)
+Requirement already satisfied: pydantic-core==2.33.2 in c:\users\dell\downloads\venv\lib\site-packages (from pydantic<3.0.0,>=2.4.0->strands-agents) (2.33.2)
+Requirement already satisfied: six>=1.5 in c:\users\dell\downloads\venv\lib\site-packages (from python-dateutil<3.0.0,>=2.1->botocore<2.0.0,>=1.29.0->strands-agents) (1.17.0)
+Requirement already satisfied: idna>=2.8 in c:\users\dell\downloads\venv\lib\site-packages (from anyio>=4.5->mcp<2.0.0,>=1.11.0->strands-agents) (3.10)
+Requirement already satisfied: sniffio>=1.1 in c:\users\dell\downloads\venv\lib\site-packages (from anyio>=4.5->mcp<2.0.0,>=1.11.0->strands-agents) (1.3.1)
+Requirement already satisfied: certifi in c:\users\dell\downloads\venv\lib\site-packages (from httpx>=0.27.1->mcp<2.0.0,>=1.11.0->strands-agents) (2025.7.14)
+Requirement already satisfied: httpcore==1.* in c:\users\dell\downloads\venv\lib\site-packages (from httpx>=0.27.1->mcp<2.0.0,>=1.11.0->strands-agents) (1.0.9)
+Requirement already satisfied: h11>=0.16 in c:\users\dell\downloads\venv\lib\site-packages (from httpcore==1.*->httpx>=0.27.1->mcp<2.0.0,>=1.11.0->strands-agents) (0.16.0)
+Requirement already satisfied: python-dotenv>=0.21.0 in c:\users\dell\downloads\venv\lib\site-packages (from pydantic-settings>=2.5.2->mcp<2.0.0,>=1.11.0->strands-agents) (1.1.1)
+Collecting cryptography>=3.4.0 (from pyjwt[crypto]>=2.10.1->mcp<2.0.0,>=1.11.0->strands-agents)
+  Using cached cryptography-46.0.3-cp311-abi3-win_amd64.whl.metadata (5.7 kB)
+Requirement already satisfied: cffi>=2.0.0 in c:\users\dell\downloads\venv\lib\site-packages (from cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->mcp<2.0.0,>=1.11.0->strands-agents) (2.0.0)
+Requirement already satisfied: pycparser in c:\users\dell\downloads\venv\lib\site-packages (from cffi>=2.0.0->cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->mcp<2.0.0,>=1.11.0->strands-agents) (2.23)
+Requirement already satisfied: click>=7.0 in c:\users\dell\downloads\venv\lib\site-packages (from uvicorn>=0.31.1->mcp<2.0.0,>=1.11.0->strands-agents) (8.2.1)
+Requirement already satisfied: colorama in c:\users\dell\downloads\venv\lib\site-packages (from click>=7.0->uvicorn>=0.31.1->mcp<2.0.0,>=1.11.0->strands-agents) (0.4.6)
+Downloading strands_agents-1.17.0-py3-none-any.whl (253 kB)
+Using cached docstring_parser-0.17.0-py3-none-any.whl (36 kB)
+Downloading mcp-1.21.2-py3-none-any.whl (174 kB)
+Using cached opentelemetry_instrumentation_threading-0.59b0-py3-none-any.whl (9.3 kB)
+Using cached opentelemetry_instrumentation-0.59b0-py3-none-any.whl (33 kB)
+Using cached opentelemetry_semantic_conventions-0.59b0-py3-none-any.whl (207 kB)
+Using cached opentelemetry_api-1.38.0-py3-none-any.whl (65 kB)
+Using cached opentelemetry_sdk-1.38.0-py3-none-any.whl (132 kB)
+Using cached wrapt-1.17.3-cp313-cp313-win_amd64.whl (38 kB)
+Using cached PyJWT-2.10.1-py3-none-any.whl (22 kB)
+Using cached cryptography-46.0.3-cp311-abi3-win_amd64.whl (3.5 MB)
+Using cached python_multipart-0.0.20-py3-none-any.whl (24 kB)
+Using cached pywin32-311-cp313-cp313-win_amd64.whl (9.5 MB)
+Using cached sse_starlette-3.0.3-py3-none-any.whl (11 kB)
+Installing collected packages: pywin32, wrapt, python-multipart, pyjwt, docstring-parser, sse-starlette, opentelemetry-api, cryptography, opentelemetry-semantic-conventions, opentelemetry-sdk, opentelemetry-instrumentation, mcp, opentelemetry-instrumentation-threading, strands-agents
+  Attempting uninstall: opentelemetry-api
+    Found existing installation: opentelemetry-api 1.36.0
+    Uninstalling opentelemetry-api-1.36.0:
+      Successfully uninstalled opentelemetry-api-1.36.0
+  Attempting uninstall: opentelemetry-semantic-conventions
+    Found existing installation: opentelemetry-semantic-conventions 0.57b0
+    Uninstalling opentelemetry-semantic-conventions-0.57b0:
+      Successfully uninstalled opentelemetry-semantic-conventions-0.57b0
+  Attempting uninstall: opentelemetry-sdk
+    Found existing installation: opentelemetry-sdk 1.36.0
+    Uninstalling opentelemetry-sdk-1.36.0:
+      Successfully uninstalled opentelemetry-sdk-1.36.0
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+opentelemetry-exporter-otlp-proto-grpc 1.36.0 requires opentelemetry-sdk~=1.36.0, but you have opentelemetry-sdk 1.38.0 which is incompatible.
+Successfully installed cryptography-46.0.3 docstring-parser-0.17.0 mcp-1.21.2 opentelemetry-api-1.38.0 opentelemetry-instrumentation-0.59b0 opentelemetry-instrumentation-threading-0.59b0 opentelemetry-sdk-1.38.0 opentelemetry-semantic-conventions-0.59b0 pyjwt-2.10.1 python-multipart-0.0.20 pywin32-311 sse-starlette-3.0.3 strands-agents-1.17.0 wrapt-1.17.3
+PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> python api.py
+[CONFIG] ✅ Configuration loaded
+[CONFIG] 📊 Database: bsr@localhost:3306
+[CONFIG] 🤖 Model: anthropic.claude-3-sonnet-20240229-v1:0
+[CONFIG] 🌍 Region: us-east-1
+[SCHEMA] ✅ HummingBird schema initialized
+[SCHEMA] 📊 Table: bookings_dataset
+[SCHEMA] 🔧 Columns: 25
+[CONFIG] ✅ Configuration and schema loaded
+❌ AWS credentials not found
+[STARTUP] 🚀 Starting HummingBird Analytics
+⚠️ Bedrock model not available - using fallback mode
+[READY] ✅ HummingBird Analytics ready
+[CAPABILITIES] 📊 KPI Calculations | General Queries | Visualization
+✅ Successfully imported analytics_agent
+🚀 Starting HummingBird Analytics API
+📋 Features: MySQL | Visualization | KPIs
+INFO:     Started server process [1400]
+INFO:     Waiting for application startup.
+🔄 Initializing HummingBird Analytics API
+✅ Analytics agent loaded
+[STARTUP] 🚀 Starting HummingBird Analytics
+⚠️ Bedrock model not available - using fallback mode
+[READY] ✅ HummingBird Analytics ready
+[CAPABILITIES] 📊 KPI Calculations | General Queries | Visualization
+✅ Successfully imported analytics_agent
+🚀 Starting HummingBird Analytics API
+📋 Features: MySQL | Visualization | KPIs
+INFO:     Started server process [1400]
+INFO:     Waiting for application startup.
+🔄 Initializing HummingBird Analytics API
+✅ Analytics agent loaded
+[READY] ✅ HummingBird Analytics ready
+[CAPABILITIES] 📊 KPI Calculations | General Queries | Visualization
+✅ Successfully imported analytics_agent
+🚀 Starting HummingBird Analytics API
+📋 Features: MySQL | Visualization | KPIs
+INFO:     Started server process [1400]
+INFO:     Waiting for application startup.
+🔄 Initializing HummingBird Analytics API
+✅ Analytics agent loaded
+✅ Successfully imported analytics_agent
+🚀 Starting HummingBird Analytics API
+📋 Features: MySQL | Visualization | KPIs
+INFO:     Started server process [1400]
+INFO:     Waiting for application startup.
+🔄 Initializing HummingBird Analytics API
+✅ Analytics agent loaded
+📋 Features: MySQL | Visualization | KPIs
+INFO:     Started server process [1400]
+INFO:     Waiting for application startup.
+🔄 Initializing HummingBird Analytics API
+✅ Analytics agent loaded
+INFO:     Waiting for application startup.
+🔄 Initializing HummingBird Analytics API
+✅ Analytics agent loaded
+🔄 Initializing HummingBird Analytics API
+✅ Analytics agent loaded
+✅ Analytics agent loaded
+🚀 Application startup completed
+INFO:     Application startup complete.
+ERROR:    [Errno 10048] error while attempting to bind on address ('0.0.0.0', 8000): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+INFO:     Waiting for application shutdown.
+🔌 Shutting down application...
+✅ Application shutdown completed
+INFO:     Application shutdown complete.
+PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> python api.py
+[CONFIG] ✅ Configuration loaded
+[CONFIG] 📊 Database: bsr@localhost:3306
+[CONFIG] 🤖 Model: anthropic.claude-3-sonnet-20240229-v1:0
+[CONFIG] 🌍 Region: us-east-1
+[SCHEMA] ✅ HummingBird schema initialized
+[SCHEMA] 📊 Table: bookings_dataset
+[SCHEMA] 🔧 Columns: 25
+[CONFIG] ✅ Configuration and schema loaded
+❌ AWS credentials not found
+[STARTUP] 🚀 Starting HummingBird Analytics
+⚠️ Bedrock model not available - using fallback mode
+[READY] ✅ HummingBird Analytics ready
+[CAPABILITIES] 📊 KPI Calculations | General Queries | Visualization
+✅ Successfully imported analytics_agent
+🚀 Starting HummingBird Analytics API
+📋 Features: MySQL | Visualization | KPIs
+INFO:     Started server process [31136]
+INFO:     Waiting for application startup.
+🔄 Initializing HummingBird Analytics API
+✅ Analytics agent loaded
+🚀 Application startup completed
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60919 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60919 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60924 - "OPTIONS /api/query HTTP/1.1" 200 OK
+
+🚀 [QUERY REQUEST]
+📝 Query: list all city names from the data
+================================================================================
+
+🚀 [ORCHESTRATOR] Processing query
+💬 [INPUT] list all city names from the data
+================================================================================
+
+📤 [QUERY RESPONSE]
+✅ Success: False
+📊 Visualization: 📝 Text only
+⏱️ Time: 0.001s
+================================================================================
+--------------------------------------------------------------------------------
+success=False query='list all city names from the data' cleaned_query=None response='Bedrock model not available' answer='Bedrock model not available' suggested_charts=None raw_results=None data_summary=None visualization_type=None timestamp='2025-11-19T13:28:54.768030' error='System not ready' individual_timings=[] column_selection_reasoning='' final_generated_sql_query=''
+--------------------------------------------------------------------------------
+INFO:     127.0.0.1:60924 - "POST /api/query HTTP/1.1" 200 OK
+
+🚀 [QUERY REQUEST]
+📝 Query: list all city names from the data
+================================================================================
+
+🚀 [ORCHESTRATOR] Processing query
+💬 [INPUT] list all city names from the data
+================================================================================
+
+📤 [QUERY RESPONSE]
+✅ Success: False
+📊 Visualization: 📝 Text only
+⏱️ Time: 0.001s
+================================================================================
+--------------------------------------------------------------------------------
+success=False query='list all city names from the data' cleaned_query=None response='Bedrock model not available' answer='Bedrock model not available' suggested_charts=None raw_results=None data_summary=None visualization_type=None timestamp='2025-11-19T13:28:57.021779' error='System not ready' individual_timings=[] column_selection_reasoning='' final_generated_sql_query=''
+--------------------------------------------------------------------------------
+INFO:     127.0.0.1:60924 - "POST /api/query HTTP/1.1" 200 OK
+
+🚀 [QUERY REQUEST]
+📝 Query: list all city names from the data
+================================================================================
+
+🚀 [ORCHESTRATOR] Processing query
+💬 [INPUT] list all city names from the data
+================================================================================
+
+📤 [QUERY RESPONSE]
+✅ Success: False
+📊 Visualization: 📝 Text only
+⏱️ Time: 0.001s
+================================================================================
+--------------------------------------------------------------------------------
+success=False query='list all city names from the data' cleaned_query=None response='Bedrock model not available' answer='Bedrock model not available' suggested_charts=None raw_results=None data_summary=None visualization_type=None timestamp='2025-11-19T13:28:59.864502' error='System not ready' individual_timings=[] column_selection_reasoning='' final_generated_sql_query=''
+--------------------------------------------------------------------------------
+INFO:     127.0.0.1:60924 - "POST /api/query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60924 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60924 - "GET /api/health HTTP/1.1" 200 OK
+
+🚀 [QUERY REQUEST]
+📝 Query: What is the total revenue by city?
+================================================================================
+
+🚀 [ORCHESTRATOR] Processing query
+💬 [INPUT] What is the total revenue by city?
+================================================================================
+
+📤 [QUERY RESPONSE]
+✅ Success: False
+📊 Visualization: 📝 Text only
+⏱️ Time: 0.001s
+================================================================================
+--------------------------------------------------------------------------------
+success=False query='What is the total revenue by city?' cleaned_query=None response='Bedrock model not available' answer='Bedrock model not available' suggested_charts=None raw_results=None data_summary=None visualization_type=None timestamp='2025-11-19T13:29:06.434843' error='System not ready' individual_timings=[] column_selection_reasoning='' final_generated_sql_query=''
+--------------------------------------------------------------------------------
+INFO:     127.0.0.1:60924 - "POST /api/query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64609 - "OPTIONS /api/query HTTP/1.1" 200 OK
+
+🚀 [QUERY REQUEST]
+📝 Query: What is the total revenue by city?
+================================================================================
+
+🚀 [ORCHESTRATOR] Processing query
+💬 [INPUT] What is the total revenue by city?
+================================================================================
+
+📤 [QUERY RESPONSE]
+✅ Success: False
+📊 Visualization: 📝 Text only
+⏱️ Time: 0.001s
+================================================================================
+--------------------------------------------------------------------------------
+success=False query='What is the total revenue by city?' cleaned_query=None response='Bedrock model not available' answer='Bedrock model not available' suggested_charts=None raw_results=None data_summary=None visualization_type=None timestamp='2025-11-19T14:23:39.965156' error='System not ready' individual_timings=[] column_selection_reasoning='' final_generated_sql_query=''
+--------------------------------------------------------------------------------
+INFO:     127.0.0.1:64609 - "POST /api/query HTTP/1.1" 200 OK
+
+🚀 [QUERY REQUEST]
+📝 Query: What is the total revenue by city?
+================================================================================
+
+🚀 [ORCHESTRATOR] Processing query
+💬 [INPUT] What is the total revenue by city?
+================================================================================
+
+📤 [QUERY RESPONSE]
+✅ Success: False
+📊 Visualization: 📝 Text only
+⏱️ Time: 0.001s
+================================================================================
+--------------------------------------------------------------------------------
+success=False query='What is the total revenue by city?' cleaned_query=None response='Bedrock model not available' answer='Bedrock model not available' suggested_charts=None raw_results=None data_summary=None visualization_type=None timestamp='2025-11-19T14:23:44.244563' error='System not ready' individual_timings=[] column_selection_reasoning='' final_generated_sql_query=''
+--------------------------------------------------------------------------------
+INFO:     127.0.0.1:64609 - "POST /api/query HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+🔌 Shutting down application...
+✅ Application shutdown completed
+INFO:     Application shutdown complete.
+INFO:     Finished server process [31136]
+PS C:\Users\DELL\Desktop\HBD data viz1\backend_2> python api.py
+[CONFIG] ✅ Configuration loaded
+[CONFIG] 📊 Database: bsr@localhost:3306
+[CONFIG] 🤖 Model: anthropic.claude-3-sonnet-20240229-v1:0
+[CONFIG] 🌍 Region: us-east-1
+[SCHEMA] ✅ HummingBird schema initialized
+[SCHEMA] 📊 Table: bookings_dataset
+[SCHEMA] 🔧 Columns: 25
+[CONFIG] ✅ Configuration and schema loaded
+❌ AWS credentials not found
+[STARTUP] 🚀 Starting HummingBird Analytics
+⚠️ Bedrock model not available - using fallback mode
+[READY] ✅ HummingBird Analytics ready
+[CAPABILITIES] 📊 KPI Calculations | General Queries | Visualization
+✅ Successfully imported analytics_agent
+🚀 Starting HummingBird Analytics API
+📋 Features: MySQL | Visualization | KPIs
+INFO:     Started server process [2252]
+INFO:     Waiting for application startup.
+🔄 Initializing HummingBird Analytics API
+✅ Analytics agent loaded
+🚀 Application startup completed
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:63971 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63971 - "GET /api/health HTTP/1.1" 200 OK
