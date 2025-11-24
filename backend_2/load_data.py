@@ -6,7 +6,7 @@ import urllib.parse
 db_config = {
     "host": "localhost",
     "user": "root",
-    "password": "Irahirs11@ittak!",
+    "password": "",
     "database": "bsr"
 }
 
