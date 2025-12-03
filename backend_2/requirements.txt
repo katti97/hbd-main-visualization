@@ -6,4 +6,6 @@ boto3
 mysql-connector-python
 pandas
 sqlalchemy
-strands
+strands-agents
+mysqlclient
+npm

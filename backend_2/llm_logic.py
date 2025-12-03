@@ -1,6 +1,4 @@
-"""
-HummingBird Analytics - Main Orchestrator with LLM Agents
-"""
+"""HummingBird Analytics - Main Orchestrator with LLM Agents"""
 
 import time
 import json
@@ -226,6 +224,13 @@ def column_selection_agent(user_query: str) -> str:
             - For KPI queries, use exact columns from KPI definitions
             - For general queries, select relevant columns from schema
             - Use exact column names from schema
+            - Support partial/fuzzy name matching for clients and properties
+
+            CLIENT NAME MATCHING RULES:
+            - If user mentions "ICICI Bank" or "ICICI", match to "ICICI Bank Limited"
+            - If user mentions "Cipla", match to "CIPLA LTD"
+            - Apply fuzzy matching: look for LIKE '%keyword%' patterns in clientName
+            - Always use case-insensitive matching for client names
 
             {schema_prompt}
 
@@ -234,7 +239,7 @@ def column_selection_agent(user_query: str) -> str:
             OUTPUT FORMAT:
             {{
                 "columns": ["column1", "column2"],
-                "reasoning": "Brief explanation"
+                "reasoning": "Brief explanation including any fuzzy matching applied"
             }}
             
             Return ONLY the JSON object.
@@ -319,7 +324,7 @@ def sql_generation_agent(user_query: str, decomposition: str) -> str:
     step_start = time.time()
 
     if not bedrock_model:
-        sql_query = f"SELECT * FROM {MYSQL_DATABASE}.bookings_dataset LIMIT 25"
+        sql_query = f"SELECT COUNT(*) as total_bookings FROM {MYSQL_DATABASE}.bookings_dataset"
         result = json.dumps({"sql_query": sql_query})
         timing_collector.set_final_sql(sql_query)
         timing_collector.add_timing("sql_generation_agent", time.time() - step_start)
@@ -332,57 +337,119 @@ def sql_generation_agent(user_query: str, decomposition: str) -> str:
         agent = Agent(
             model=bedrock_model,
             system_prompt=f"""
-            You are an expert MySQL SQL generation specialist.
+            You are an expert MySQL SQL generation specialist for business intelligence and analytics.
 
-            MISSION:
-            - For KPI queries, generate SQL matching exact KPI requirements
-            - For general queries, generate appropriate MySQL SQL
-            - Use table name: bookings_dataset
-            - Generate clean, executable SQL
+            CRITICAL RULES:
+            
+            1. ALWAYS GENERATE ANALYTICAL/SUMMARY QUERIES:
+            - Every query MUST include at least ONE aggregate function: COUNT(), SUM(), AVG(), MIN(), MAX()
+            - Use GROUP BY when analyzing dimensions
+            - NEVER generate listing queries like SELECT * or SELECT col1, col2, col3
+            - Focus on summarized metrics and insights
+            - Prefer analytical queries that provide business value
 
-            DATE HANDLING:
-            - Column 'bookingdate' is stored as TEXT in format 'MM/DD/YYYY'  
-            - Use STR_TO_DATE(bookingdate, '%m/%d/%Y') to parse dates        
-            - Note: Use forward slashes (/) not dashes (-)
-            - Always check for NULL: WHERE bookingdate IS NOT NULL AND bookingdate != ''
+            2. CLIENT NAME FUZZY MATCHING:
+            - ALWAYS use LIKE operator with wildcards for client name matching
+            - Example: WHERE clientName LIKE '%ICICI%' (not exact match)
+            - Case-insensitive matching: Use UPPER() or LOWER() functions
+            - Common patterns:
+                * "ICICI Bank" → WHERE UPPER(clientName) LIKE '%ICICI%BANK%'
+                * "Cipla" → WHERE UPPER(clientName) LIKE '%CIPLA%'
+                * "Amazon" → WHERE UPPER(clientName) LIKE '%AMAZON%'
+            - Apply fuzzy matching for ANY client/company name in query
+
+            3. PROPERTY/HOTEL QUERIES:
+            - When asked about hotels/properties for a client, use DISTINCT on PropertyName
+            - Example: SELECT DISTINCT PropertyName FROM bookings_dataset WHERE clientName LIKE '%CIPLA%'
+            - Group by property when showing metrics per property
+
+            4. DATE HANDLING:
+            - Column 'bookingdate' is DATETIME type
+            - Column 'checkindt' is DATETIME type  
+            - Column 'checkoutdt' is DATETIME type
+            - Use standard MySQL date functions: YEAR(), MONTH(), QUARTER(), DATE()
+            - Always check: WHERE bookingdate IS NOT NULL for date-based queries
+
+            5. TABLE NAME:
+            - Always use: bookings_dataset
 
             {schema_prompt}
 
             {kpi_definitions}
 
             MYSQL SPECIFIC RULES:
-            - Use LIMIT for row restrictions
-            - Use proper JOIN syntax
+            - Use proper aggregate functions
+            - Use GROUP BY for dimensional analysis
+            - Use HAVING for filtered aggregations
             - Handle NULL values with COALESCE or IS NOT NULL
+            - Use meaningful aliases (AS total_bookings, AS total_revenue)
+            - Query should always return summarized/aggregated results, not raw listings
+            - Use fuzzy string matching with LIKE for all name-based filters
 
             OUTPUT FORMAT:
             {{
-                "sql_query": "COMPLETE SQL QUERY"
+                "sql_query": "COMPLETE ANALYTICAL SQL QUERY"
             }}
             
-            Return ONLY the JSON object.
+            Return ONLY the JSON object. Query must include aggregation functions and fuzzy matching where applicable.
             """
         )
         
-        response = agent(f"Generate SQL for: {user_query}\nDecomposition: {decomposition}")
+        print(f"🤖 Calling agent with query: {user_query}")
+        response = agent(f"""Generate an ANALYTICAL SQL query for: {user_query}
+
+Decomposition: {decomposition}
+
+REQUIREMENTS:
+- Use aggregation functions (COUNT, SUM, AVG, MIN, MAX)
+- Use GROUP BY if analyzing by dimensions
+- Never generate listing queries
+- Use LIKE operator with wildcards for client/company name matching
+- Use standard MySQL date functions for DATETIME columns
+- Focus on business insights and summaries
+""")
+        
+        print(f"📥 Raw agent response: {response}")
         result = str(response).strip()
         
         sql_query = ""
         try:
+            print(f"🔍 Attempting to parse JSON from: {result[:200]}...")
             parsed_result = safe_json_loads(result)
+            print(f"✅ Parsed result: {parsed_result}")
             sql_query = parsed_result.get("sql_query", "")
-        except:
-            sql_query = f"SELECT * FROM {MYSQL_DATABASE}.bookings_dataset LIMIT 10"
+            print(f"📝 Extracted SQL: {sql_query}")
+            
+            # Validation: ensure query has aggregation
+            if sql_query and not any(keyword in sql_query.upper() for keyword in ['COUNT(', 'SUM(', 'AVG(', 'MIN(', 'MAX(']):
+                print(f"⚠️ Generated query lacks aggregation, using fallback")
+                sql_query = f"SELECT COUNT(*) as total_records FROM {MYSQL_DATABASE}.bookings_dataset WHERE bookingdate IS NOT NULL"
+                result = json.dumps({"sql_query": sql_query})
+                
+        except Exception as parse_error:
+            print(f"❌ JSON parsing error: {parse_error}")
+            print(f"❌ Failed to parse result: {result}")
+            sql_query = f"SELECT COUNT(*) as total_bookings, SUM(totaltariff) as total_revenue FROM {MYSQL_DATABASE}.bookings_dataset WHERE bookingdate IS NOT NULL"
+            result = json.dumps({"sql_query": sql_query})
         
         if sql_query:
+            timing_collector.set_final_sql(sql_query)
+        else:
+            print(f"⚠️ No SQL query extracted, using fallback")
+            sql_query = f"SELECT COUNT(*) as total_records FROM {MYSQL_DATABASE}.bookings_dataset WHERE bookingdate IS NOT NULL"
+            result = json.dumps({"sql_query": sql_query})
             timing_collector.set_final_sql(sql_query)
         
         timing_collector.add_timing("sql_generation_agent", time.time() - step_start)
         return result
         
     except Exception as e:
+        print(f"❌ EXCEPTION in sql_generation_agent: {type(e).__name__}: {str(e)}")
+        import traceback
+        print(f"❌ Traceback: {traceback.format_exc()}")
+        
         timing_collector.add_timing("sql_generation_agent", time.time() - step_start)
-        sql_query = f"SELECT * FROM {MYSQL_DATABASE}.bookings_dataset LIMIT 25"
+        sql_query = f"SELECT COUNT(*) as total_bookings FROM {MYSQL_DATABASE}.bookings_dataset WHERE bookingdate IS NOT NULL"
         timing_collector.set_final_sql(sql_query)
         return json.dumps({"sql_query": sql_query})
 
@@ -649,22 +716,54 @@ def result_formatting_agent(user_query: str, sql_query: str, query_results: str)
             agent = Agent(
                 model=bedrock_model,
                 system_prompt="""
-                You are a results formatting specialist.
+                You are a results formatting specialist for business analytics.
 
-                TASK: Format query results clearly and appropriately.
+                TASK: Format query results clearly and appropriately with intelligent number formatting.
 
-                RULES:
-                1. dont Present actual data from query only analysis
+                NUMBER FORMATTING RULES:
+                1. COUNT METRICS (bookings, records, clients, properties):
+                - Display as plain numbers with comma separators
+                - Examples: "5,03,347 bookings", "1,523 clients", "45 properties" , "10,005 Checkouts"
+                - NEVER use currency symbols (₹) for counts
+                
+                2. REVENUE/MONEY METRICS (totaltariff, revenue, amounts):
+                - Display with currency symbol: ₹
+                - Examples: "₹2,45,67,890", "₹1.2 crores"
+                - Use Indian number formatting for rupees
+                
+                3. PERCENTAGES AND RATIOS:
+                - Display with % symbol or as ratios
+                - Examples: "85.5%", "3.2:1 ratio"
+                
+                4. CONTEXT-AWARE FORMATTING:
+                - Look at column names to determine type
+                - "total_bookings", "booking_count" → plain numbers
+                - "total_revenue", "amount", "tariff" → currency
+                - When in doubt, use plain numbers
+
+                PRESENTATION RULES:
+                1. Do NOT show raw query data, only provide analysis
                 2. Keep format clean and professional
                 3. Include simple insights when applicable
-                4. give deep analysis
-                6. use rupees for summary
+                4. Provide deep analysis of patterns and trends
+                5. Use proper number formatting based on metric type
+                6. Highlight key findings prominently
                 
-                OUTPUT: Formatted text response
+                OUTPUT: Formatted text response with proper number formatting
                 """
             )
             
-            formatted_response = str(agent(f"Format results for: {user_query}\nSQL: {sql_query}\nResults: {json.dumps(raw_results)}"))
+            formatted_response = str(agent(f"""Format results for: {user_query}
+
+SQL: {sql_query}
+Results: {json.dumps(raw_results)}
+
+FORMATTING INSTRUCTIONS:
+- Apply correct number formatting (counts vs currency)
+- Counts/bookings: plain numbers (e.g., "5,03,347 bookings", "10,472 properties")
+- Revenue/money: currency format (e.g., "₹2,45,67,890", "₹45,899")
+- Provide insights and analysis
+"""))
         
         # Create enhanced response
         enhanced_response = {
@@ -691,7 +790,6 @@ def result_formatting_agent(user_query: str, sql_query: str, query_results: str)
             "data_summary": {},
             "type": "error"
         })
-
 # ============================================================================
 # MAIN ORCHESTRATOR
 # ============================================================================
@@ -893,4 +991,3 @@ print(f"[STARTUP] 🚀 Starting HummingBird Analytics")
 analytics_agent = HummingBirdOrchestrator()
 print(f"[READY] ✅ HummingBird Analytics ready")
 print(f"[CAPABILITIES] 📊 KPI Calculations | General Queries | Visualization")
-

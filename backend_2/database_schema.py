@@ -151,7 +151,7 @@ class HummingBirdSchema:
                     "industry_terms": "CheckOut",
                     "business_criticality": "High"
                 },
-                "BookingDate": {
+                "bookingdate": {
                     "alias": "Booking Date",
                     "data_type": "TIMESTAMP",
                     "business_definition": "Date and time on which the booking was made by the client.",

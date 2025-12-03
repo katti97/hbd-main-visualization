@@ -1,0 +1,13 @@
+INFO:     Started server process [46830]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 8000): address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+❌ Failed to import analytics_agent: cannot import name 'Agent' from 'strands' (/root/miniconda3/envs/py3.10/lib/python3.10/site-packages/strands/__init__.py)
+🚀 Starting HummingBird Analytics API
+📋 Features: MySQL | Visualization | KPIs
+🔄 Initializing HummingBird Analytics API
+❌ Failed to initialize application: analytics_agent could not be imported
+🔌 Shutting down application...
+✅ Application shutdown completed

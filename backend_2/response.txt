@@ -1,47 +1,49 @@
 
 ==================================================
-Timestamp: 2025-11-24 13:49:34.649280
+Timestamp: 2025-12-03 10:02:53.193905
 ==================================================
 {
   "success": true,
-  "query": "Show total number of bookings",
-  "cleaned_query": "Show the total number of bookings.",
-  "response": "**Total Bookings Analysis**\n\n- **Total Number of Bookings**: 503,347\n\n**Summary**:  \nThe dataset contains a total of **503,347 distinct bookings**, indicating a robust volume of booking activity. This figure represents unique BookingId entries, ensuring no duplicates are counted. The high number reflects strong customer engagement and operational scale.\n\n**Insight**:  \nWith over half a million bookings recorded, the business has a substantial transactional footprint. This volume supports the need for scalable data management, efficient booking processing systems, and advanced analytics to derive customer behavior patterns and optimize revenue.\n\n**Next Steps**:  \n- Analyze booking trends over time (monthly/quarterly growth).\n- Segment by customer demographics or service type for deeper insights.\n- Evaluate booking cancellation or completion rates to assess conversion efficiency.\n\n**Summary in Rupees (for financial context)**:  \nWhile this metric is non-monetary, if an average booking value were applied (e.g., ₹1,000), the total booking value would be approximately **₹50,33,47,000** (50.33 Crore INR). Actual revenue impact depends on average order value and conversion rate.\n",
-  "answer": "**Total Bookings Analysis**\n\n- **Total Number of Bookings**: 503,347\n\n**Summary**:  \nThe dataset contains a total of **503,347 distinct bookings**, indicating a robust volume of booking activity. This figure represents unique BookingId entries, ensuring no duplicates are counted. The high number reflects strong customer engagement and operational scale.\n\n**Insight**:  \nWith over half a million bookings recorded, the business has a substantial transactional footprint. This volume supports the need for scalable data management, efficient booking processing systems, and advanced analytics to derive customer behavior patterns and optimize revenue.\n\n**Next Steps**:  \n- Analyze booking trends over time (monthly/quarterly growth).\n- Segment by customer demographics or service type for deeper insights.\n- Evaluate booking cancellation or completion rates to assess conversion efficiency.\n\n**Summary in Rupees (for financial context)**:  \nWhile this metric is non-monetary, if an average booking value were applied (e.g., ₹1,000), the total booking value would be approximately **₹50,33,47,000** (50.33 Crore INR). Actual revenue impact depends on average order value and conversion rate.\n",
+  "query": "show me the savings data of ICICI bank",
+  "cleaned_query": "Show me the savings account data for ICICI Bank.",
+  "response": "## ICICI Bank Savings Account Data Analysis\n\n### Key Metrics:\n- **Unique Clients**: 3 clients\n- **Total Records**: 2,44,729 records\n\n### Analysis:\nICICI Bank's savings account data shows a concentrated client base with high transaction frequency. With only **3 unique clients** generating **2,44,729 total records**, this indicates an average of approximately **81,576 records per client**, suggesting either high-volume institutional usage or potential data aggregation patterns.\n\nThe significant disparity between client count and record volume warrants further investigation into the nature of these relationships and transaction patterns.\n",
+  "answer": "## ICICI Bank Savings Account Data Analysis\n\n### Key Metrics:\n- **Unique Clients**: 3 clients\n- **Total Records**: 2,44,729 records\n\n### Analysis:\nICICI Bank's savings account data shows a concentrated client base with high transaction frequency. With only **3 unique clients** generating **2,44,729 total records**, this indicates an average of approximately **81,576 records per client**, suggesting either high-volume institutional usage or potential data aggregation patterns.\n\nThe significant disparity between client count and record volume warrants further investigation into the nature of these relationships and transaction patterns.\n",
   "suggested_charts": [
     {
       "type": "bar",
-      "x_column": "total_bookings",
-      "y_column": "total_bookings",
-      "title": "Total Number of Bookings"
+      "x_column": "metric",
+      "y_column": "value",
+      "title": "ICICI Bank Savings Account Data Overview"
     }
   ],
   "raw_results": [
     {
-      "total_bookings": 503347
+      "unique_client_count": 3,
+      "total_records": 244729
     }
   ],
   "data_summary": {
     "row_count": 1,
     "columns": [
-      "total_bookings"
+      "unique_client_count",
+      "total_records"
     ]
   },
   "visualization_type": "data_analysis_with_visualization",
-  "timestamp": "2025-11-24T13:49:34.644045",
+  "timestamp": "2025-12-03T10:02:53.193287",
   "error": null,
   "individual_timings": [
-    "query_preprocessing_agent: 1.337s",
-    "intent_classification_agent: 0.424s",
-    "column_selection_agent: 1.176s",
-    "query_decomposition_agent: 0.785s",
-    "sql_generation_agent: 0.950s",
-    "query_validation_agent: 0.651s",
-    "execute_mysql_query: 2.295s",
-    "visualization_analysis_agent: 0.895s",
-    "result_formatting_agent: 4.902s"
+    "query_preprocessing_agent: 0.450s",
+    "intent_classification_agent: 0.394s",
+    "column_selection_agent: 0.929s",
+    "query_decomposition_agent: 0.734s",
+    "sql_generation_agent: 0.940s",
+    "query_validation_agent: 0.438s",
+    "execute_mysql_query: 1.476s",
+    "visualization_analysis_agent: 0.683s",
+    "result_formatting_agent: 2.079s"
   ],
-  "column_selection_reasoning": "To calculate the total number of bookings, we use the BookingId column as it uniquely identifies each booking. The count of distinct BookingId values gives the total number of bookings, as defined in the 'total_bookings' KPI.",
-  "final_generated_sql_query": "SELECT COUNT(DISTINCT BookingId) AS total_bookings FROM bookings_dataset WHERE BookingId IS NOT NULL;"
+  "column_selection_reasoning": "Selected client identification columns to match 'ICICI Bank' using fuzzy matching rules. Will match against 'ICICI Bank Limited' in the clientname column.",
+  "final_generated_sql_query": "SELECT COUNT(DISTINCT clientid) AS unique_client_count, COUNT(*) AS total_records FROM bookings_dataset WHERE UPPER(masterclientname) LIKE '%ICICI%BANK%' OR UPPER(clientname) LIKE '%ICICI%BANK%'"
 }
 
