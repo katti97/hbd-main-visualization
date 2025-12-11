@@ -1,3 +1,5 @@
+In a seprate terminal, run: ./setup_mysql.sh
+
 cd backend_2
 
 pip install -r requirements.txt

@@ -1,49 +1,106 @@
 
 ==================================================
-Timestamp: 2025-12-03 10:02:53.193905
+Timestamp: 2025-12-11 13:11:31.826763
 ==================================================
 {
   "success": true,
-  "query": "show me the savings data of ICICI bank",
-  "cleaned_query": "Show me the savings account data for ICICI Bank.",
-  "response": "## ICICI Bank Savings Account Data Analysis\n\n### Key Metrics:\n- **Unique Clients**: 3 clients\n- **Total Records**: 2,44,729 records\n\n### Analysis:\nICICI Bank's savings account data shows a concentrated client base with high transaction frequency. With only **3 unique clients** generating **2,44,729 total records**, this indicates an average of approximately **81,576 records per client**, suggesting either high-volume institutional usage or potential data aggregation patterns.\n\nThe significant disparity between client count and record volume warrants further investigation into the nature of these relationships and transaction patterns.\n",
-  "answer": "## ICICI Bank Savings Account Data Analysis\n\n### Key Metrics:\n- **Unique Clients**: 3 clients\n- **Total Records**: 2,44,729 records\n\n### Analysis:\nICICI Bank's savings account data shows a concentrated client base with high transaction frequency. With only **3 unique clients** generating **2,44,729 total records**, this indicates an average of approximately **81,576 records per client**, suggesting either high-volume institutional usage or potential data aggregation patterns.\n\nThe significant disparity between client count and record volume warrants further investigation into the nature of these relationships and transaction patterns.\n",
+  "query": "2024 total revenue per month",
+  "cleaned_query": "What was the total revenue per month in 2024?",
+  "response": "### Total Revenue Per Month in 2024\n\nHere is the monthly breakdown of total revenue generated in 2024:\n\n| Month | Total Revenue       |\n|-------|---------------------|\n| Jan   | ₹10,19,48,780       |\n| Feb   | ₹8,81,54,827        |\n| Mar   | ₹7,73,55,812        |\n| Apr   | ₹8,35,79,583        |\n| May   | ₹13,51,64,166       |\n| Jun   | ₹10,49,28,389       |\n| Jul   | ₹10,89,12,832       |\n| Aug   | ₹10,98,63,116       |\n| Sep   | ₹11,61,45,116       |\n| Oct   | ₹10,89,56,477       |\n| Nov   | ₹12,69,69,486       |\n| Dec   | ₹12,04,95,095       |\n\n---\n\n### Key Insights & Analysis\n\n- **Highest Revenue Month**: **May 2024** generated the highest revenue at **₹13.52 crores**, indicating strong seasonal demand or successful promotions.\n  \n- **Lowest Revenue Month**: **March 2024** recorded the lowest revenue at **₹7.74 crores**, which could be due to post-festival lulls or lower travel activity.\n\n- **Overall Trend**: \n  - Revenue shows recovery and growth from March onward.\n  - Consistent performance from July through December, with most months crossing **₹10 crores**, peaking again in **November (₹12.70 crores)**.\n\n- **Seasonal Observations**:\n  - The second quarter (Apr–Jun) and fourth quarter (Oct–Dec) show stronger revenues, suggesting peak booking periods likely tied to holidays and festivals.\n\nThis data highlights a generally upward trend in revenue throughout the year, with clear seasonal peaks that may inform future marketing and inventory strategies.\n",
+  "answer": "### Total Revenue Per Month in 2024\n\nHere is the monthly breakdown of total revenue generated in 2024:\n\n| Month | Total Revenue       |\n|-------|---------------------|\n| Jan   | ₹10,19,48,780       |\n| Feb   | ₹8,81,54,827        |\n| Mar   | ₹7,73,55,812        |\n| Apr   | ₹8,35,79,583        |\n| May   | ₹13,51,64,166       |\n| Jun   | ₹10,49,28,389       |\n| Jul   | ₹10,89,12,832       |\n| Aug   | ₹10,98,63,116       |\n| Sep   | ₹11,61,45,116       |\n| Oct   | ₹10,89,56,477       |\n| Nov   | ₹12,69,69,486       |\n| Dec   | ₹12,04,95,095       |\n\n---\n\n### Key Insights & Analysis\n\n- **Highest Revenue Month**: **May 2024** generated the highest revenue at **₹13.52 crores**, indicating strong seasonal demand or successful promotions.\n  \n- **Lowest Revenue Month**: **March 2024** recorded the lowest revenue at **₹7.74 crores**, which could be due to post-festival lulls or lower travel activity.\n\n- **Overall Trend**: \n  - Revenue shows recovery and growth from March onward.\n  - Consistent performance from July through December, with most months crossing **₹10 crores**, peaking again in **November (₹12.70 crores)**.\n\n- **Seasonal Observations**:\n  - The second quarter (Apr–Jun) and fourth quarter (Oct–Dec) show stronger revenues, suggesting peak booking periods likely tied to holidays and festivals.\n\nThis data highlights a generally upward trend in revenue throughout the year, with clear seasonal peaks that may inform future marketing and inventory strategies.\n",
   "suggested_charts": [
     {
-      "type": "bar",
-      "x_column": "metric",
-      "y_column": "value",
-      "title": "ICICI Bank Savings Account Data Overview"
+      "type": "line",
+      "x_column": "month",
+      "y_column": "total_revenue",
+      "title": "Total Revenue per Month in 2024"
     }
   ],
   "raw_results": [
     {
-      "unique_client_count": 3,
-      "total_records": 244729
+      "total_revenue": 101948780.0,
+      "month": 1,
+      "year": 2024
+    },
+    {
+      "total_revenue": 88154827.0,
+      "month": 2,
+      "year": 2024
+    },
+    {
+      "total_revenue": 77355812.0,
+      "month": 3,
+      "year": 2024
+    },
+    {
+      "total_revenue": 83579583.0,
+      "month": 4,
+      "year": 2024
+    },
+    {
+      "total_revenue": 135164166.0,
+      "month": 5,
+      "year": 2024
+    },
+    {
+      "total_revenue": 104928389.0,
+      "month": 6,
+      "year": 2024
+    },
+    {
+      "total_revenue": 108912832.0,
+      "month": 7,
+      "year": 2024
+    },
+    {
+      "total_revenue": 109863116.0,
+      "month": 8,
+      "year": 2024
+    },
+    {
+      "total_revenue": 116145116.0,
+      "month": 9,
+      "year": 2024
+    },
+    {
+      "total_revenue": 108956477.0,
+      "month": 10,
+      "year": 2024
+    },
+    {
+      "total_revenue": 126969486.0,
+      "month": 11,
+      "year": 2024
+    },
+    {
+      "total_revenue": 120495095.0,
+      "month": 12,
+      "year": 2024
     }
   ],
   "data_summary": {
-    "row_count": 1,
+    "row_count": 12,
     "columns": [
-      "unique_client_count",
-      "total_records"
+      "total_revenue",
+      "month",
+      "year"
     ]
   },
   "visualization_type": "data_analysis_with_visualization",
-  "timestamp": "2025-12-03T10:02:53.193287",
+  "timestamp": "2025-12-11T13:11:31.826289",
   "error": null,
   "individual_timings": [
-    "query_preprocessing_agent: 0.450s",
-    "intent_classification_agent: 0.394s",
-    "column_selection_agent: 0.929s",
-    "query_decomposition_agent: 0.734s",
-    "sql_generation_agent: 0.940s",
-    "query_validation_agent: 0.438s",
-    "execute_mysql_query: 1.476s",
-    "visualization_analysis_agent: 0.683s",
-    "result_formatting_agent: 2.079s"
+    "query_preprocessing_agent: 0.639s",
+    "intent_classification_agent: 0.574s",
+    "column_selection_agent: 1.255s",
+    "query_decomposition_agent: 1.482s",
+    "sql_generation_agent: 1.124s",
+    "query_validation_agent: 0.530s",
+    "execute_mysql_query: 1.105s",
+    "visualization_analysis_agent: 0.992s",
+    "result_formatting_agent: 7.177s"
   ],
-  "column_selection_reasoning": "Selected client identification columns to match 'ICICI Bank' using fuzzy matching rules. Will match against 'ICICI Bank Limited' in the clientname column.",
-  "final_generated_sql_query": "SELECT COUNT(DISTINCT clientid) AS unique_client_count, COUNT(*) AS total_records FROM bookings_dataset WHERE UPPER(masterclientname) LIKE '%ICICI%BANK%' OR UPPER(clientname) LIKE '%ICICI%BANK%'"
+  "column_selection_reasoning": "Selected 'totaltariff' for revenue calculation and 'bookingdate' to filter and group by month in 2024. These columns are directly used in the KPI definition for total revenue.",
+  "final_generated_sql_query": "SELECT SUM(totaltariff) AS total_revenue, MONTH(bookingdate) AS month, YEAR(bookingdate) AS year FROM bookings_dataset WHERE YEAR(bookingdate) = 2024 AND bookingdate IS NOT NULL GROUP BY MONTH(bookingdate), YEAR(bookingdate) ORDER BY MONTH(bookingdate)"
 }
 

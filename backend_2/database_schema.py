@@ -449,6 +449,48 @@ def get_comprehensive_kpi_definitions() -> str:
     <calculation_logic>Sum all rooms captured and divide by total available rooms (if capacity data available).</calculation_logic>
 </kpi>
 
+<kpi name="total_guest_count" category="operational">
+    <business_definition>The total number of unique guests that have made bookings.</business_definition>
+    <formula>Total_guestcount = COUNT(DISTINCT GuestId)</formula>
+    <table_requirements>
+        <primary_table>bookings_dataset</primary_table>
+        <columns_needed>GuestId</columns_needed>
+        <joins>None required</joins>
+        <conditions>GuestId IS NOT NULL</conditions>
+        <aggregation>COUNT DISTINCT</aggregation>
+        <group_by>None (for total count)</group_by>
+    </table_requirements>
+    <calculation_logic>Count the distinct occurrences of the 'GuestId' column.</calculation_logic>
+</kpi>
+
+<kpi name="total_stay_days" category="operational">
+    <business_definition>The cumulative sum of all stay durations across all bookings.</business_definition>
+    <formula>Total_staydays = SUM(StayDays)</formula>
+    <table_requirements>
+        <primary_table>bookings_dataset</primary_table>
+        <columns_needed>StayDays</columns_needed>
+        <joins>None required</joins>
+        <conditions>StayDays IS NOT NULL AND StayDays > 0</conditions>
+        <aggregation>SUM</aggregation>
+        <group_by>PropertyName, ClientName (or as needed for segmentation)</group_by>
+    </table_requirements>
+    <calculation_logic>Sum the values in the 'StayDays' column.</calculation_logic>
+</kpi>
+
+<kpi name="total_tariff" category="financial">
+    <business_definition>The total cumulative tariff (charge/revenue) generated from all bookings.</business_definition>
+    <formula>Total_tariff = SUM(TotalTariff)</formula>
+    <table_requirements>
+        <primary_table>bookings_dataset</primary_table>
+        <columns_needed>TotalTariff</columns_needed>
+        <joins>None required</joins>
+        <conditions>TotalTariff IS NOT NULL AND TotalTariff > 0</conditions>
+        <aggregation>SUM</aggregation>
+        <group_by>PropertyName, ClientName (or as needed for segmentation)</group_by>
+    </table_requirements>
+    <calculation_logic>Sum the values in the 'TotalTariff' column.</calculation_logic>
+</kpi>
+
 <kpi name="top_clients_by_bookings" category="customer">
     <business_definition>Identifies clients with the highest number of bookings.</business_definition>
     <formula>Top Clients = ClientName with MAX(COUNT(BookingId))</formula>
@@ -463,6 +505,62 @@ def get_comprehensive_kpi_definitions() -> str:
         <limit>10</limit>
     </table_requirements>
     <calculation_logic>Count bookings per client and order by count descending.</calculation_logic>
+</kpi>
+
+<kpi name="total_booking_count" category="operational">
+    <business_definition>The total number of unique bookings recorded in the system.</business_definition>
+    <formula>Totalbookingcount = DISTINCTCOUNT(BookingCode)</formula>
+    <table_requirements>
+        <primary_table>bookings_dataset</primary_table>
+        <columns_needed>BookingCode</columns_needed>
+        <joins>None required</joins>
+        <conditions>BookingCode IS NOT NULL</conditions>
+        <aggregation>DISTINCTCOUNT</aggregation>
+        <group_by>None (for total count)</group_by>
+    </table_requirements>
+    <calculation_logic>Count the number of unique values in the 'BookingCode' column.</calculation_logic>
+</kpi>
+
+<kpi name="total_loss_or_gain" category="financial">
+    <business_definition>The cumulative sum of the 'maxlossorgain' calculated for each unique booking.</business_definition>
+    <formula>SELECT SUM(maxlossorgain) FROM (SELECT BookingCode, MAX(lossorgain_source_column) AS maxlossorgain FROM WRBHBBookingStatus GROUP BY BookingCode) AS T</formula>
+    <table_requirements>
+        <primary_table>bookings_dataset</primary_table>
+        <columns_needed>BookingCode, lossorgain_source_column (assuming the maxlossorgain measure is derived from a column like lossorgain_source_column)</columns_needed>
+        <joins>None required</joins>
+        <conditions>None specified</conditions>
+        <aggregation>SUM (on pre-aggregated booking-level values)</aggregation>
+        <group_by>None (The internal calculation aggregates by BookingCode)</group_by>
+    </table_requirements>
+    <calculation_logic>logic is implemented in MySQL by first identifying the 'maxlossorgain' value for each distinct 'BookingCode' (potentially using a subquery with MAX/GROUP BY) and then summing these booking-level results.</calculation_logic>
+</kpi>
+
+<kpi name="total_occupancy" category="operational">
+    <business_definition>The cumulative sum of the 'maxoccupancy' calculated for each unique booking.</business_definition>
+    <formula>SELECT SUM(maxoccupancy) FROM (SELECT BookingCode, MAX(occupancy_source_column) AS maxoccupancy FROM WRBHBBookingStatus GROUP BY BookingCode) AS T</formula>
+    <table_requirements>
+        <primary_table>WRBHBBookingStatus</primary_table>
+        <columns_needed>BookingCode, occupancy_source_column (assuming the maxoccupancy measure is derived from a column like occupancy_source_column)</columns_needed>
+        <joins>None required</joins>
+        <conditions>None specified</conditions>
+        <aggregation>SUM (on pre-aggregated booking-level values)</aggregation>
+        <group_by>None (The internal calculation aggregates by BookingCode)</group_by>
+    </table_requirements>
+    <calculation_logic>logic is implemented in MySQL by first identifying the 'maxoccupancy' value for each distinct 'BookingCode' (potentially using a subquery with MAX/GROUP BY) and then summing these booking-level results.</calculation_logic>
+</kpi>
+
+<kpi name="total_tariff_1_row_level" category="financial_detail">
+    <business_definition>The total tariff (cost) for a single booking line item, calculated by multiplying the number of stay days by the tariff rate.</business_definition>
+    <formula>Staydays * Tariff</formula>
+    <table_requirements>
+        <primary_table>WRBHBBookingStatus</primary_table>
+        <columns_needed>Staydays, Tariff</columns_needed>
+        <joins>None required</joins>
+        <conditions>Staydays1 IS NOT NULL AND Tariff IS NOT NULL</conditions>
+        <aggregation>Multiplication (Row-Level)</aggregation>
+        <group_by>None (Calculated per row)</group_by>
+    </table_requirements>
+    <calculation_logic>Multiply the value in the 'Staydays1' column by the value in the 'Tariff' column for each individual row.</calculation_logic>
 </kpi>
 
 <kpi name="top_properties_by_revenue" category="financial">
